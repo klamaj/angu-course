@@ -21,6 +21,7 @@ export class AppComponent implements OnInit{
 
 
   courses: Course[] = COURSES;
+  category: string = "ADVANCED";
 
   constructor(private coursesService: CoursesService, @Inject(CONFIG_TOKEN) private config: AppConfig, private cd: ChangeDetectorRef ) {
 
@@ -31,14 +32,17 @@ export class AppComponent implements OnInit{
 
 
   ngOnInit() {
-
   }
 
 
   onEditCourse(){
-
-    this.courses[1].category = 'ADVANCED';
-
+    this.category = (this.category === "ADVANCED") ? "BEGINNER" : "ADVANCED";
+    // if (this.category === "ADVANCED") {
+    //   this.category = "BEGINNER";
+    // }
+    // else {
+    //   this.category = "ADVANCED";
+    // }
   }
 
 
